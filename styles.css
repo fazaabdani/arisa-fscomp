@@ -53,3 +53,8 @@ body:before{content:"";position:fixed;z-index:-1;width:520px;height:520px;left:c
 
 @media(max-width:760px){.ambient-beams{opacity:.15}.hero-bg{--hero-x:68%;--hero-y:50%}.motion-card{transform:none!important}.motion-card:after{display:none}}
 @media(prefers-reduced-motion:reduce){body:before,.ambient-beams,.floating-wa:after{display:none}.motion-card{transform:none!important}.gallery-track.is-auto-scrolling article{filter:none}}
+
+/* Premium number treatment: deliberate grouping and generous rhythm */
+.phone-number{font-family:'Barlow Condensed',Inter,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.085em;white-space:nowrap;text-shadow:0 1px 12px rgba(255,255,255,.09)}
+.cs-box .phone-number{font-size:15px;font-weight:700;letter-spacing:.075em}
+.floating-wa .phone-number{font-size:18px;font-weight:700;letter-spacing:.11em}
