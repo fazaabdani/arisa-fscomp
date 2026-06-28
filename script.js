@@ -86,3 +86,64 @@ if(particleCanvas&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   resizeParticles();drawParticles();
   addEventListener('pagehide',()=>cancelAnimationFrame(frame),{once:true});
 }
+
+const motionAllowed=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(motionAllowed){
+  // A soft page-wide spotlight follows the pointer.
+  addEventListener('pointermove',e=>{
+    document.documentElement.style.setProperty('--cursor-x',`${e.clientX}px`);
+    document.documentElement.style.setProperty('--cursor-y',`${e.clientY}px`);
+  },{passive:true});
+
+  // Cards gain depth and a local light reflection, without affecting touch devices.
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const motionCards=[...document.querySelectorAll('.service-strip article,.mini-cards article,.fleet-cards article')];
+    motionCards.forEach(card=>{
+      card.classList.add('motion-card');
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+        card.style.setProperty('--rx',`${(0.5-py)*5}deg`);
+        card.style.setProperty('--ry',`${(px-0.5)*6}deg`);
+        card.style.setProperty('--mx',`${px*100}%`);
+        card.style.setProperty('--my',`${py*100}%`);
+      },{passive:true});
+      card.addEventListener('pointerleave',()=>{
+        card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg');
+      });
+    });
+  }
+
+  // The background moves at a slower rate than the page for cinematic depth.
+  let parallaxTick=false;
+  addEventListener('scroll',()=>{
+    if(parallaxTick)return;parallaxTick=true;
+    requestAnimationFrame(()=>{
+      const hero=document.querySelector('.hero');
+      if(hero){const r=hero.getBoundingClientRect();hero.style.setProperty('--hero-parallax',`${Math.max(-18,Math.min(18,-r.top*.055))}px`)}
+      parallaxTick=false;
+    });
+  },{passive:true});
+
+  // Count up only when the experience badge enters view.
+  const counter=document.querySelector('[data-count]');
+  if(counter)new IntersectionObserver(([entry],obs)=>{
+    if(!entry.isIntersecting)return;obs.disconnect();
+    const target=Number(counter.dataset.count),start=performance.now(),duration=1100;
+    const animate=now=>{const p=Math.min(1,(now-start)/duration),ease=1-Math.pow(1-p,3);counter.textContent=`${Math.round(target*ease)}+`;if(p<1)requestAnimationFrame(animate)};
+    requestAnimationFrame(animate);
+  },{threshold:.7}).observe(counter);
+
+  // Auto-tour the gallery; user interaction pauses it and remains in control.
+  let galleryTimer,autoPaused=false;
+  const startGallery=()=>{clearInterval(galleryTimer);galleryTimer=setInterval(()=>{
+    if(autoPaused||document.hidden)return;
+    const card=track.querySelector('article'),step=(card?.getBoundingClientRect().width||220)+6;
+    const end=track.scrollWidth-track.clientWidth-4;
+    track.classList.add('is-auto-scrolling');
+    track.scrollTo({left:track.scrollLeft>=end?0:track.scrollLeft+step,behavior:'smooth'});
+    setTimeout(()=>track.classList.remove('is-auto-scrolling'),850);
+  },3600)};
+  ['pointerenter','focusin','touchstart'].forEach(event=>track.addEventListener(event,()=>autoPaused=true,{passive:true}));
+  ['pointerleave','focusout'].forEach(event=>track.addEventListener(event,()=>autoPaused=false,{passive:true}));
+  startGallery();
+}
