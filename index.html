@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050606" />
+  <title>PO Arisa Putri — Sewa Bus Pariwisata</title>
+  <meta name="description" content="Sewa bus pariwisata premium untuk perjalanan nyaman dan berkesan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="site-header" id="header">
+    <a class="brand" href="#beranda" aria-label="PO Arisa Putri">
+      <span class="brand-mark"><i></i><b>AP</b></span>
+      <span><strong>PO ARISA PUTRI</strong><small>Perjalanan Nyaman, Kenangan Berkesan</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#beranda">Beranda</a><a href="#tentang">Tentang Kami</a><a href="#layanan">Layanan Wisata</a><a href="#armada">Armada</a><a href="#galeri">Galeri</a><a href="#testimoni">Testimoni</a><a href="#kontak">Kontak</a>
+    </nav>
+    <a class="btn btn-red header-cta" href="#penawaran">Minta Penawaran <span>›</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Partner perjalanan terpercaya sejak 2012</span>
+        <h1>SEWA BUS<br>PARIWISATA<br><em>PO ARISA PUTRI</em></h1>
+        <p>Perjalanan wisata rombongan yang nyaman, aman,<br class="desktop"> dan berkesan untuk setiap momen spesial Anda.</p>
+        <div class="hero-actions"><a class="btn btn-red" href="#penawaran">Sewa Bus Sekarang <span>›</span></a><a class="btn btn-outline" href="#armada"><span>▣</span> Lihat Armada</a></div>
+      </div>
+      <div class="hero-stat reveal"><strong>12+</strong><span>Tahun<br>Pengalaman</span></div>
+    </section>
+
+    <section class="quote-panel reveal" id="penawaran">
+      <div class="section-kicker">▣ &nbsp; MINTA PENAWARAN SEWA BUS PARIWISATA</div>
+      <form id="quoteForm">
+        <label>Kota Keberangkatan<select id="origin" required><option value="">Pilih kota</option><option>Jakarta</option><option>Bandung</option><option>Surabaya</option><option>Yogyakarta</option><option>Denpasar</option></select></label>
+        <label>Tujuan Wisata<input id="destination" placeholder="Pilih destinasi" required /></label>
+        <label>Tanggal Berangkat<input id="date" type="date" required /></label>
+        <label>Jumlah Peserta<select id="passengers" required><option value="">Pilih jumlah</option><option>1–20 orang</option><option>21–35 orang</option><option>36–50 orang</option><option>Lebih dari 50</option></select></label>
+        <label>Jenis Armada<select id="fleet" required><option value="">Pilih armada</option><option>Medium Bus</option><option>Big Bus</option><option>Executive Bus</option></select></label>
+        <button class="btn btn-red" type="submit">Minta Penawaran <span>➤</span></button>
+      </form>
+      <a class="cs-box" href="https://wa.me/6281234567890" target="_blank" rel="noopener"><span class="wa">◉</span><span><small>CUSTOMER SERVICE</small><strong>0812-3456-7890</strong><em>08.00 – 20.00 WIB</em></span></a>
+    </section>
+
+    <section class="service-strip" id="layanan">
+      <article class="reveal"><i>♨</i><div><strong>Wisata Keluarga</strong><small>Liburan seru bersama keluarga</small></div></article>
+      <article class="reveal"><i>◇</i><div><strong>Study Tour</strong><small>Perjalanan edukatif & berkesan</small></div></article>
+      <article class="reveal"><i>♜</i><div><strong>Ziarah</strong><small>Perjalanan religi nyaman</small></div></article>
+      <article class="reveal"><i>♙</i><div><strong>Gathering Perusahaan</strong><small>Kompak, produktif, berkesan</small></div></article>
+      <article class="reveal"><i>▥</i><div><strong>Kunjungan Instansi</strong><small>Perjalanan dinas & kunjungan</small></div></article>
+      <article class="reveal"><i>▣</i><div><strong>Antar Jemput Event</strong><small>Event, konser & acara spesial</small></div></article>
+    </section>
+
+    <section class="content-grid" id="tentang">
+      <div class="panel services-panel reveal">
+        <h2>LAYANAN UNGGULAN</h2>
+        <div class="mini-cards">
+          <article style="--pos:14%"><span class="mini-icon">♨</span><strong>Wisata & Liburan</strong></article>
+          <article style="--pos:40%"><span class="mini-icon">☼</span><strong>Ziarah & Religi</strong></article>
+          <article style="--pos:64%"><span class="mini-icon">▧</span><strong>Study Tour</strong></article>
+          <article style="--pos:86%"><span class="mini-icon">♙</span><strong>Outing & Gathering</strong></article>
+        </div>
+        <a class="panel-link" href="#layanan">Lihat Semua Layanan <span>›</span></a>
+      </div>
+
+      <div class="panel fleet-panel reveal" id="armada">
+        <h2>PILIHAN ARMADA</h2>
+        <div class="fleet-cards">
+          <article><div class="fleet-img medium"></div><strong>MEDIUM BUS</strong><span>♙ &nbsp;29 – 35 Seat</span><small>Cocok untuk rombongan kecil</small></article>
+          <article><div class="fleet-img big"></div><strong>BIG BUS</strong><span>♙ &nbsp;45 – 59 Seat</span><small>Nyaman untuk rombongan besar</small></article>
+          <article><div class="fleet-img exec"></div><strong>EXECUTIVE BUS</strong><span>♙ &nbsp;Premium Interior</span><small>Kabin mewah & fasilitas terbaik</small></article>
+        </div>
+        <a class="panel-link" href="#armada">Lihat Semua Armada <span>›</span></a>
+      </div>
+
+      <div class="panel advantage-panel reveal">
+        <h2>KEUNGGULAN ARMADA KAMI</h2>
+        <div class="advantage-copy"><ul><li>Armada Terawat & Bersih</li><li>Driver Berpengalaman</li><li>Kabin Nyaman & Lega</li><li>AC Dingin & Merata</li><li>Reclining Seat</li><li>Audio Entertainment</li><li>Bagasi Luas</li><li>Perjalanan Aman & Nyaman</li></ul><div class="bus-cutout"></div></div>
+      </div>
+    </section>
+
+    <section class="gallery panel reveal" id="galeri">
+      <div class="gallery-head"><h2>GALERI PERJALANAN</h2><div class="gallery-controls"><button id="galleryPrev" aria-label="Sebelumnya">‹</button><button id="galleryNext" aria-label="Berikutnya">›</button></div></div>
+      <div class="gallery-track" id="galleryTrack">
+        <article style="--p:8%"><span>Family Trip · Bali</span></article><article style="--p:24%"><span>Gathering · Bandung</span></article><article style="--p:44%"><span>Study Tour · Jogja</span></article><article style="--p:60%"><span>Executive Journey</span></article><article style="--p:75%"><span>Ziarah Bersama</span></article><article style="--p:92%"><span>Sunset Tour</span></article>
+      </div>
+    </section>
+
+    <section class="testimonials reveal" id="testimoni">
+      <div class="testi-intro"><span class="eyebrow">KATA MEREKA</span><h2>Perjalanan baik,<br><em>cerita yang melekat.</em></h2><p>Kepercayaan penumpang adalah standar tertinggi kami.</p></div>
+      <div class="testi-slider" id="testiSlider">
+        <blockquote class="active"><div class="stars">★★★★★</div><p>“Bus bersih, driver ramah, dan jadwal sangat tepat. Perjalanan study tour 3 hari terasa aman dan menyenangkan.”</p><footer><strong>Rina Maharani</strong><span>Koordinator Study Tour, Jakarta</span></footer></blockquote>
+        <blockquote><div class="stars">★★★★★</div><p>“Pelayanan cepat dari awal penawaran. Armada nyaman sekali untuk rombongan keluarga besar kami.”</p><footer><strong>Fajar Nugraha</strong><span>Family Gathering, Bandung</span></footer></blockquote>
+        <blockquote><div class="stars">★★★★★</div><p>“Tim sangat profesional dan fleksibel. Acara kantor berjalan mulus, semua peserta puas.”</p><footer><strong>Dewi Anggraini</strong><span>HR Manager, Surabaya</span></footer></blockquote>
+        <div class="testi-dots"><button class="active" data-slide="0"></button><button data-slide="1"></button><button data-slide="2"></button></div>
+      </div>
+    </section>
+
+    <section class="facilities panel reveal"><h2>FASILITAS PREMIUM</h2><div><span>◩ <b>Reclining Seat</b></span><span>❉ <b>AC</b></span><span>♜ <b>USB Charger</b></span><span>♫ <b>Audio Karaoke</b></span><span>▣ <b>Bagasi Luas</b></span><span>♙ <b>Toilet</b></span><span>▤ <b>Bantal & Selimut</b></span><span>♙ <b>Driver Profesional</b></span></div></section>
+  </main>
+
+  <footer id="kontak"><div class="footer-brand"><div class="brand"><span class="brand-mark"><i></i><b>AP</b></span><span><strong>PO ARISA PUTRI</strong><small>Perjalanan Nyaman, Kenangan Berkesan</small></span></div><p>Teman perjalanan rombongan Anda, ke mana pun tujuannya.</p></div><div><strong>Navigasi</strong><a href="#tentang">Tentang Kami</a><a href="#armada">Armada</a><a href="#galeri">Galeri</a></div><div><strong>Hubungi Kami</strong><a href="tel:+6281234567890">0812-3456-7890</a><a href="mailto:halo@arisaputri.id">halo@arisaputri.id</a><span>Jakarta, Indonesia</span></div><div class="developer-credit">Dikembangkan oleh <strong>FS Dev</strong></div></footer>
+  <a class="floating-wa" href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><span>◉</span><b>0812-3456-7890</b></a>
+  <div class="toast" id="toast"><strong>Permintaan siap dikirim!</strong><span id="toastText"></span><button id="toastClose">×</button></div>
+  <script src="script.js"></script>
+</body>
+</html>
